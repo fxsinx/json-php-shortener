@@ -7,6 +7,6 @@ define("JSON_FILE", "./some-private-dir/urls.json");
 define("DEFAULT_URL", "https://fxsinx.com");
 
 // passcode needed to shorten URLs.
-define("PASSCODE", "zzzz");
+define("PASSCODE", "abcd1234");
 
 ?>

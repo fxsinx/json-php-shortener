@@ -8,7 +8,7 @@ Apache or Nginx, PHP or HHVM installed.
 # Configurations
 
 ## Apache Configurations
-Modify the .htaccess file by appending these lines:
+Modify the `.htaccess file` by appending these lines:
 
 ```
 DirectoryIndex index.html index.htm index.php
@@ -21,7 +21,7 @@ RewriteRule . /index.php [L]
 ```
 
 ## Nginx Configurations
-Modify by your server.conf in `/etc/nginx/conf.d/` by joining these lines to your `server{ ... }` block:
+Modify by your `server.conf` in `/etc/nginx/conf.d/` by joining these lines to your `server{ ... }` block:
 
 ```
 location / {
@@ -53,5 +53,3 @@ The `status` indicates whether if it added the rule.
 If it fails, you will get detailed `msg`.
 
 If it succeeds, it’s gonna tell you the whether the type is `update` or `insert`. You’ll probably get an `update` type if you shortened an URL that already exists in the JSON file.
-
-
