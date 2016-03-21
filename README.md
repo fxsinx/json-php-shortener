@@ -13,10 +13,10 @@ Modify the .htaccess file by appending these lines:
 ```
 DirectoryIndex index.html index.htm index.php
 <IfModule mod_rewrite.c>
-RewriteRule ^index\.php$ - [L]()
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]()
+RewriteRule . /index.php [L]
 </IfModule>
 ```
 
