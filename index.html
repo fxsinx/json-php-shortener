@@ -1,0 +1,118 @@
+<head><meta charset="utf-8" />
+<title>JSON PHP URL Shortener</title>
+<style>
+body{
+	background-color: #f1f1f1;
+}
+div#main {
+    margin: 100px auto;
+    width: 80%;
+    min-width: 320px;
+    text-align: center;
+}
+
+h1 {
+    color: #555;
+    text-shadow: 0 1px 0 #FFF;
+    letter-spacing: 2px;
+}
+
+.btn{
+    background-color: #E0E0E0;
+    color: #666;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    text-decoration: none;
+    opacity: 1;
+    padding: 20px 30px;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    border-radius: 4px;
+    transition: background 200ms ease;
+    border: none;
+    margin: 20px auto;
+    cursor: pointer;
+    outline: none;
+}
+.btn:hover{
+	background-color: #E8E8E8;
+}
+	html,body{
+		font-family: "Menlo", Courier, "Helvetica Neue", Helvetica, Arial, Sans-serif;
+	}
+label, input {
+    display: block;
+    font-size: 16px;
+    color: #666;
+    text-shadow: 0 1px 0 #FFF;
+}
+
+.bltxt {
+    width: 80%;
+    margin: 10px auto 30px auto;
+    height: 50px;
+    padding: 0 10px;
+    text-align: center;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    font-family: "Menlo", Courier, "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    font-size: 18px;
+    outline: none;
+    transition: border-color 200ms ease;
+}
+
+.bltxt:focus{
+	border-color: #43A6EC;
+	transition: border-color 200ms ease;
+}
+
+footer{
+	text-align: center;
+	margin-top: 50px;
+	color: #aaa;
+	font-size: 11px;
+}
+
+a{
+	color: #999;
+}
+</style>
+</head>
+<body><div id="main">
+<h1>JSON PHP URL Shortener</h1>
+<form action="add.php" method="post" onsubmit="event.preventDefault(); check(this);">
+	<label>Long URL<input id="url" class="bltxt" type="text" name="url" placeholder="http://" width="200" /></label>
+	<label>Short Name<input id="short" class="bltxt" type="text" name="short" placeholder="Must start with /" width="200" /></label>
+	<label>Passcode:<input class="bltxt" type="password" name="pass" width="200" /></label>
+	<input class="btn" type="submit" value="Shorten"></input>
+</form></div>
+
+<script type="text/javascript">
+	document.getElementById('url').focus();
+    function check(form) {
+        var u = document.getElementById('url').value;
+        var s = document.getElementById('short').value;
+        if (RegExp(/.*[\u4e00-\u9fa5]+.*$/).test(u) || RegExp(/.*[\u4e00-\u9fa5]+.*$/).test(s)) {
+            window.alert("Ilegal characters in URL or short name.");
+            return false;
+        }
+        if (s.charAt(0) != '/') {
+            s = '/'+s;
+            document.getElementById('short').value = s;
+        }
+        if (!RegExp(/^(\/[0-9a-zA-Z-]{1,}){1,}$/).test(s)) {
+            window.alert("Invalid short name.");
+            return false;
+        }
+        if ( u.indexOf("http://") != 0 && u.indexOf('https://')!=0 ) {
+            u = 'http://'+u;
+            document.getElementById('url').value = u;
+        }
+        form.submit();
+        return true;
+    }
+</script>
+
+<footer>Project on <a href="https://github.com/fxsinx/json-php-shortener">Github/fxsinx</a>, by <a href="https://www.netsh.org">Netsh</a>.</footer>
+</body>
