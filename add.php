@@ -54,5 +54,5 @@ file_put_contents(JSON_FILE, stripslashes(json_encode($obj)));
 "status":1,
 "msg":"<?php echo $flag?'update':'insert'; ?>",
 "url_response":"<?php echo $res_status; ?>",
-"short":"<?php echo $short; ?>"
+"short":"<?php echo SITE_URL.$short; ?>"
 }
